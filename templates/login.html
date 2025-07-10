@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Injection Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        .form-container {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🔐 SQL Injection Login Demo</h2>
+
+    <div class="form-container">
+        <h3>🔓 Vulnerable Login</h3>
+        <form action="/vulnerable" method="POST">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+            <button type="submit">Login (Vulnerable)</button>
+        </form>
+        <p class="note">Try: <code>' OR '1'='1</code> as username</p>
+    </div>
+
+    <div class="form-container">
+        <h3>🔐 Secure Login</h3>
+        <form action="/secure" method="POST">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br>
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+            <button type="submit">Login (Secure)</button>
+        </form>
+        <p class="note">Try the same injection here and see the difference</p>
+    </div>
+
+</body>
+</html>
